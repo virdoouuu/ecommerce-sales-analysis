@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/raw/README.md
+!data/processed/.gitkeep
+.DS_Store
+.vscode/
+*.zip
+sql/*.csv
