@@ -1,0 +1,10 @@
+step,reason,rows_before,rows_after
+Load raw data (both sheets combined),Two sheets cover Dec 2009 - Dec 2011,1067371,1067371
+Remove exact duplicates,Sheets overlap on 1-9 Dec 2010; identical rows would be counted twice,1067371,1033036
+Remove non-product codes,"Postage, fees, discounts, manual entries and gift vouchers are not product sales",1033036,1027218
+Remove price <= 0,"Free items and accounting adjustments, not real sales",1027218,1021254
+Split cancelled orders into returns table,Invoice starts with C. Kept separately so we can calculate net revenue,1021254,1003340
+Remove quantity <= 0 in sales,Stock write-offs and corrections without a customer,1003340,1003340
+Standardize descriptions,One name per product code (most frequent name),1003340,1003340
+Keep rows with missing Customer ID,"226761 rows. Valid for sales by product/country/time; excluded later from customer analysis (RFM, repeat rate)",1003340,1003340
+"Outliers: reviewed, not removed",Large orders may be genuine wholesale; cancelled ones are netted out via returns,1003340,1003340
